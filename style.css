@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    background-color: #F0EDEE;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom:10px;
+    color:#0A090C;
+}
+
+.game {
+    width: 370px;
+    height: 370px;
+}
+
+button.box {
+    width:120px;
+    height:120px;
+    border-radius: 1rem;
+    font-size:40px
+}
