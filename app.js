@@ -1,5 +1,9 @@
 let turnX = true;
 let buttons = document.querySelectorAll(".box");
+let gameOver = false;
+let winStatement = document.querySelector(".win-statement");
+let resetButton = document.querySelector(".reset");
+let clicks = 0;
 
 const winPatterns = [
     [0,1,2],
@@ -12,16 +16,39 @@ const winPatterns = [
     [2,4,6]
 ];
 
+resetButton.addEventListener("click", () => {
+    location.reload();
+});
 
+console.log(buttons)
 buttons.forEach( (button) => {
-    button.addEventListener("click", (e) => {
-    if(turnX) {
-        button.innerText = "X";
-        turnX = false;
-    }
-    else {
-        button.innerText = "O";
-        turnX = true;
-    }
+    button.addEventListener("click", () => {
+        if(gameOver) return;
+        if(turnX) {
+            button.textContent = "X";
+            button.style.color = "#003049";
+            turnX = false;
+        }
+        else {
+            button.textContent = "O";
+            button.style.color = "#d62828"
+            turnX = true;
+        }
+        button.disabled = true;
+        clicks++;
+        winCheck(button.textContent)
+        if (clicks === 9 && !gameOver) {
+            winStatement.innerHTML = "It's a tie!";
+            gameOver = true;
+        }
+    });
 });
-});
+
+function winCheck (sign) {
+    for(let pattern of winPatterns) {
+        if(buttons[pattern[0]].textContent === sign && buttons[pattern[1]].textContent === sign && buttons[pattern[2]].textContent === sign) {
+            winStatement.innerHTML = `<b class="win-sign" id="${sign}-color">${sign}</b> wins!`;
+            gameOver = true;
+        }
+    }
+};
