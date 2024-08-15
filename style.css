@@ -2,14 +2,31 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Helvetica, sans-serif;
+    font-family: Montserrat, sans-serif;
 }
 
-body {
-    background-color: #fcbf49;
+#main-menu {
+    background-color: #ff4c4c;
+    height: 100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
 }
 
-main {
+#main-menu .animated-logo {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height: 40vh;
+    width:30vw;
+    background-image: url("https://cdn.dribbble.com/users/108183/screenshots/5288723/tic_tac_toe_loader_.gif");
+    background-size: cover;
+}
+
+
+main#gameplay {
+    background-color: #fcd91d;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -18,9 +35,22 @@ main {
     align-items: center;
 }
 
-h1 {
-    margin-bottom:10px;
-    color:#f77f00;
+h1.win-statement {
+    height:70px;
+    font-weight:bolder;
+    color: #ff4c4c;
+}
+
+h1#main-heading {
+    color:#ffda1f;
+    font-size: 40px;
+    margin: 0;
+}
+
+h2#secondary-heading {
+    font-weight:normal;
+    color:#ffda1f;
+    font-size: 20px;
 }
 
 .game {
@@ -47,23 +77,24 @@ button.box:active {
     filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
 }
 
-button.reset {
+button.reset, button.play {
     background-color: #f77f00;
     color: #eae2b7;
     border: 0;
     font-size: 20px;
-    margin-top:10px;
-    padding:10px;
+    margin-top:20px;
+    padding:10px 20px 10px 20px;
     border-radius: 1rem;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    transition: all 0.2s ease;
 }
 
-h3.win-statement {
-    margin:15px 0 5px;
+button.reset:active, button.play:active {
+    transform: translateY(4px);
 }
 
 .win-sign {
-    font-size: 24px;
+    font-size: 46px;
 }
 
 #X-color {

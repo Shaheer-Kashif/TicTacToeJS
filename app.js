@@ -34,11 +34,14 @@ buttons.forEach( (button) => {
             button.style.color = "#d62828"
             turnX = true;
         }
+        winStatement.style.visibility = "hidden";
         button.disabled = true;
         clicks++;
         winCheck(button.textContent)
         if (clicks === 9 && !gameOver) {
+    
             winStatement.innerHTML = "It's a tie!";
+            winStatement.style.visibility = "visible";
             gameOver = true;
         }
     });
@@ -47,8 +50,10 @@ buttons.forEach( (button) => {
 function winCheck (sign) {
     for(let pattern of winPatterns) {
         if(buttons[pattern[0]].textContent === sign && buttons[pattern[1]].textContent === sign && buttons[pattern[2]].textContent === sign) {
+            winStatement.style.visibility = "visible";
             winStatement.innerHTML = `<b class="win-sign" id="${sign}-color">${sign}</b> wins!`;
             gameOver = true;
+            return;
         }
     }
 };
